@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Facundo | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+
+  <header>👨‍💻 Facundo | Desarrollador Full Stack</header>
+
+  <section class="hero">
+    <img src="yo.jpeg" alt="Foto de perfil" id="profile-image" />
+    <h1>¡Hola! Soy Facundo Coletti</h1>
+    <p>Estudiante de 2do año de la Tecnicatura Universitaria en Programación en UTN FRRe Resistencia. Me interesa todo lo relacionado con el desarrollo de software: desde el backend y las APIs, hasta el diseño frontend y las apps móviles.
+       Busco seguir creciendo como programador, ampliando mis conocimientos y aportando valor en proyectos reales.
+    </p>
+  </section>
+
+  <section>
+    <h2>🛠️ Tecnologías</h2>
+    <div class="tech-icons">
+      <img src="https://cdn-icons-png.flaticon.com/512/186/186320.png" alt="HTML" title="HTML" />
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919826.png" alt="CSS" title="CSS" />
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919828.png" alt="JavaScript" title="JavaScript" />
+      <img src="https://cdn-icons-png.flaticon.com/512/1126/1126012.png" alt="React" title="React" />
+      <img src="https://cdn-icons-png.flaticon.com/512/6132/6132221.png" alt="C#" title="C#" />
+      <img src="https://cdn.worldvectorlogo.com/logos/dot-net-core-7.svg" alt=".NET" title=".NET" />
+      <img src="https://cdn-icons-png.flaticon.com/512/919/919836.png" alt="MySQL" title="MySQL" />
+      <img src="https://cdn-icons-png.flaticon.com/512/5968/5968364.png" alt="SQL Server" title="SQL Server" />
+      <img src="https://cdn-icons-png.flaticon.com/512/226/226770.png" alt="Android Studio" title="Android Studio con Kotlin" />
+    </div>
+  </section>
+
+
+<section>
+  <h2>📁 Proyectos</h2>
+  <div class="projects">
+
+    <div class="card">
+      <div class="carousel" data-images='["spa.png", "mvc.png", "mobile.png", "api.png"]'>
+        <img src="spa.png" alt="Vehículos" class="carousel-img" />
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <h3>Sistema Integral de Alquiler de Vehículos</h3>
+      <p>Proyecto academico con arquitectura modular: API REST en .NET, SPA en React, MVC en .NET y App Mobile en Kotlin.</p>
+      <a href="https://github.com/Coletti68/Alquiler-Vehiculos" target="_blank">Ver en GitHub</a>
+    </div>
+
+    <div class="card">
+      <div class="carousel" data-images='["TurnoNoLogin.png", "PanelAdmin.png"]'>
+        <img src="TurnoNoLogin.png" alt="Turnos" class="carousel-img" />
+        <button class="prev">&#10094;</button>
+        <button class="next">&#10095;</button>
+      </div>
+      <h3>Solicitud de Turnos para Centro Medico</h3>
+      <p>Pagina Web para clientes y Sistema de Escritorio enfocado a Admin/Secretaria</p>
+      <a href="https://github.com/Coletti68/Sistema-de-Gestion-de-Turnos" target="_blank">Ver en GitHub</a>
+    </div>
+
+  </div>
+</section>
+
+  <section id="formulario-contacto">
+    <h2>📬 Contactame</h2>
+    <form action="https://formspree.io/f/xblkybnd" method="POST" id="contact-form">
+      <!-- Honeypot -->
+      <input type="text" name="_gotcha" style="display:none" />
+
+      <label for="nombre">Nombre:</label>
+      <input type="text" id="nombre" name="nombre" required />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required />
+
+      <label for="mensaje">Mensaje:</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit" id="submit-btn">Enviar</button>
+    </form>
+
+    <div id="form-success" style="display:none;">
+      <p>✅ ¡Gracias por tu mensaje! Te responderé pronto.</p>
+    </div>
+  </section>
+
+  <footer>
+    <div class="socials">
+      <a href="https://www.linkedin.com/in/facundo-jesús-coletti-a6561a342" target="_blank">
+        <img src="https://cdn.worldvectorlogo.com/logos/linkedin-icon-2.svg" alt="LinkedIn" />
+      </a>
+      <a href="https://github.com/Coletti68" target="_blank">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub" />
+      </a>
+    </div>
+  </footer>
+
+  <!-- Modal para imagen -->
+  <div id="img-modal" class="modal">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modal-img">
+  </div>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const button = document.getElementById('submit-btn');
+    const successMessage = document.getElementById('form-success');
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      button.disabled = true;
+      button.textContent = 'Enviando...';
+
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Accept': 'application/json'
+        }
+      }).then(response => {
+        if (response.ok) {
+          form.reset();
+          successMessage.style.display = 'block';
+        } else {
+          alert('Hubo un error al enviar el mensaje. Intentalo de nuevo.');
+        }
+        button.disabled = false;
+        button.textContent = 'Enviar';
+      }).catch(error => {
+        alert('Error de conexión. Intentalo más tarde.');
+        button.disabled = false;
+        button.textContent = 'Enviar';
+      });
+    });
+
+    // Modal de imagen - ahora compatible con múltiples imágenes
+const modal = document.getElementById("img-modal");
+const modalImg = document.getElementById("modal-img");
+const span = document.getElementsByClassName("modal-close")[0];
+
+// Función global para abrir el modal desde cualquier imagen
+function openModalWithImage(src) {
+  modal.style.display = "flex";
+  modalImg.src = src;
+}
+
+// Cierre del modal al hacer clic en la X
+span.onclick = function () {
+  modal.style.display = "none";
+}
+
+// Cierre del modal al hacer clic fuera de la imagen
+window.onclick = function (event) {
+  if (event.target === modal) {
+    modal.style.display = "none";
+  }
+}
+
+  </script>
+
+  <script>
+  const carousels = document.querySelectorAll('.carousel');
+
+  carousels.forEach(carousel => {
+    const images = JSON.parse(carousel.getAttribute('data-images'));
+    const imgElement = carousel.querySelector('.carousel-img');
+    const prevBtn = carousel.querySelector('.prev');
+    const nextBtn = carousel.querySelector('.next');
+    let currentIndex = 0;
+
+    function showImage(index) {
+      currentIndex = (index + images.length) % images.length;
+      imgElement.src = images[currentIndex];
+    }
+
+    prevBtn.addEventListener('click', () => showImage(currentIndex - 1));
+    nextBtn.addEventListener('click', () => showImage(currentIndex + 1));
+
+    imgElement.addEventListener('click', () => {
+      modal.style.display = "flex";
+      modalImg.src = imgElement.src;
+    });
+  });
+</script>
+
+
+</body>
+</html>

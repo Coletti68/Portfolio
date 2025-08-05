@@ -1,0 +1,346 @@
+/* Reset y base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(to right, #1f1c2c, #928dab);
+  color: #fff;
+  user-select: none;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+.hero img {
+  border-radius: 50%;
+  width: 150px;
+  margin-bottom: 20px;
+  border: 4px solid #fff;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.1rem;
+  max-width: 600px;
+}
+
+/* Secciones */
+section {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.8rem;
+  margin-bottom: 50px;
+  color: #ffd700;
+}
+
+/* Tecnologías */
+.tech-icons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 10px;
+}
+
+.tech-icons img,
+.socials img {
+  width: 60px;
+  margin: 10px;
+  transition: transform 0.3s ease;
+}
+
+.tech-icons img:hover,
+.socials img:hover {
+  transform: scale(1.2);
+}
+
+/* Proyectos */
+.projects {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 20px;
+}
+
+section1 {
+  padding-top: 1px;
+  padding: 50px 10px;
+  text-align: center;
+}
+
+.card {
+  background-color: rgba(255, 255, 255, 0.08);
+  padding: 10px 14px;
+  border-radius: 10px;
+  width: 100%;
+  max-width: 300px;
+  text-align: left;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+.card img {
+  width: 100%;
+  border-radius: 8px;
+  max-height: 160px;
+  object-fit: cover;
+  margin-bottom: 6px;
+}
+
+.card h3 {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #ffd700;
+}
+
+.card p {
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.card a {
+  color: #ffd700;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 0.95rem;
+  margin-top: auto;
+}
+
+/* Formulario */
+#formulario-contacto {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 30px 25px;
+  background-color: rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+}
+
+#formulario-contacto h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: #ffd700;
+}
+
+#formulario-contacto form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#formulario-contacto label {
+  text-align: left;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.95rem;
+}
+
+#formulario-contacto input,
+#formulario-contacto textarea {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  background-color: rgba(255, 255, 255, 0.2);
+  color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+#formulario-contacto input::placeholder,
+#formulario-contacto textarea::placeholder {
+  color: #ccc;
+}
+
+#formulario-contacto input:focus,
+#formulario-contacto textarea:focus {
+  outline: none;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+#formulario-contacto button {
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  background-color: #ffd700;
+  color: #1f1c2c;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#formulario-contacto button:hover {
+  background-color: #e6c200;
+}
+
+#formulario-contacto button:disabled {
+  background-color: #aaa;
+  cursor: not-allowed;
+}
+
+/* Mensaje de éxito */
+#form-success {
+  margin-top: 20px;
+  padding: 15px;
+  background-color: rgba(0, 255, 0, 0.2);
+  border: 1px solid #00ff88;
+  border-radius: 6px;
+  color: #00ff88;
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Footer */
+footer {
+  padding: 30px;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.socials img {
+  width: 40px;
+  margin: 0 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .projects {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* === Imagen ampliable === */
+#profile-img {
+  cursor: zoom-in;
+  transition: transform 0.3s ease;
+  max-width: 160px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#profile-img:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 80%;
+  max-height: 80%;
+  border-radius: 12px;
+}
+
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+  }
+}
+
+/* === Carrusel de imágenes === */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+}
+
+.carousel-img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  border-radius: 8px;
+  margin-bottom: 6px;
+}
+
+.carousel button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  border: none;
+  color: white;
+  padding: 0.5em;
+  font-size: 1.5em;
+  cursor: pointer;
+  z-index: 1;
+  border-radius: 50%;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel .prev {
+  left: 8px;
+}
+
+.carousel .next {
+  right: 8px;
+}
+
+body * {
+  user-select: none;
+}
+
